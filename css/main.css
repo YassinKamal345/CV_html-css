@@ -1,0 +1,333 @@
+:root {
+  --bg-color: #f4f6f8;
+  --text-color: #1f2933;
+  --accent-color: #2563eb;
+  --border-color: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  letter-spacing: -0.5px;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 3px dashed var(--accent-color);
+  outline-offset: 3px;
+}
+/* 
+   HEADER (foto + nombre)
+   Flexbox en columna (mobile-first)
+*/
+
+.header {
+  background: white;
+  padding: 1.5rem;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.profile-img {
+  width: 90px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0.5rem;
+  background: white;
+  margin: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.github-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.github-link:hover .github-icon {
+  transform: scale(1.1);
+}
+
+.github-icon {
+  transition: transform 0.2s ease;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-list li:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+.contact-icon {
+  transition: transform 0.2s ease;
+}
+
+main {
+  padding: 1.5rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+
+section h3::before {
+  content: "▌";
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skills-grid ul {
+  padding-left: 1rem;
+}
+
+.skills-grid li {
+  margin-bottom: 0.4rem;
+}
+
+.project {
+  background: white;
+  padding: 1rem;
+  border-left: 4px solid var(--accent-color);
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-top: 1px solid var(--border-color);
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.skills-list li:hover .skill-icon {
+  transform: scale(1.1);
+}
+/*
+   RESPONSIVE DESIGN
+*/
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main {
+    max-width: 900px;
+    margin: auto;
+  }
+  .header h1 {
+    font-size: 2.5rem;
+  } 
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 3rem;
+  }
+
+  .profile-img {
+    width: 120px;
+  }
+}
+/*
+   MODO IMPRESIÓN
+*/
+@media print {
+  nav {
+    display: none;
+  }
+  
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+  }
+
+    body {
+    background: white;
+  }
+
+    section h3::before {
+    content: "";
+  }
+
+    img {
+    display: none;
+  }
+
+    body {
+    color: black;
+  }
+  .contact-icon {
+    display: none;
+  }
+
+  .skill-icon {
+    display: none;
+  }
+}
+/*
+   FORMACIÓN (línea temporal)
+   Uso de ::before para línea y puntos
+*/
+#formacion {
+  position: relative;
+}
+
+#formacion::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--border-color);
+}
+/* Interlineado y separación de cada estudio */
+#formacion article {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+/* Punto de la línea temporal */
+
+#formacion article::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+/* --- */
+.skills-icons {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
+  padding-left: 0;
+  justify-content: flex-start;
+}
+
+.skills-icons li {
+  margin-bottom: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-icons .skill-icon {
+  width: 32px;
+  height: 32px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.skills-icons li:hover .skill-icon {
+  transform: translateY(-3px) scale(1.1);
+}
