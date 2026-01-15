@@ -56,3 +56,7 @@ The goal was to create a **clean, accessible, responsive, and printable** CV sui
 │       ├── catalonia.svg
 │       ├── uk.svg
 │       └── france.svg
+
+
+Link Vercel:
+https://cv-html-css-five.vercel.app/
