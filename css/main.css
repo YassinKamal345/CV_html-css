@@ -272,11 +272,13 @@ section h3::before {
    FORMACIÓN (línea temporal)
    Uso de ::before para línea y puntos
 */
-#formacion {
+#formacion,
+#experiencia {
   position: relative;
 }
 
-#formacion::before {
+#formacion::before,
+#experiencia::before {
   content: "";
   position: absolute;
   left: 6px;
@@ -286,14 +288,16 @@ section h3::before {
   background-color: var(--border-color);
 }
 /* Interlineado y separación de cada estudio */
-#formacion article {
+#formacion article,
+#experiencia article {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
 /* Punto de la línea temporal */
 
-#formacion article::before {
+#formacion article::before,
+#experiencia article::before {
   content: "";
   position: absolute;
   left: 0;
